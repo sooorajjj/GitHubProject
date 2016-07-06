@@ -1,37 +1,28 @@
 package com.rockstart.githubproject;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private RelativeLayout mRoot;
+    private LinearLayout mRoot;
     private TextInputLayout mInputLayout, mPasswordLayout;
     private EditText mInputText, mPasswordText;
     private Button login;
     private TextView registerLink;
     boolean isEmptyEmail;
     boolean isEmptyPassword;
-
-    RippleDrawable rippleButton;
-
 
     private View.OnClickListener mSnackBarClickListener = new View.OnClickListener() {
         @Override
@@ -45,13 +36,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Klok Innovations");
-        getSupportActionBar().setLogo(R.drawable.collection_report);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-
-
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
 
         Initialize();
         listener();
@@ -59,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void Initialize() {
         registerLink = (TextView) findViewById(R.id.tvRegister);
-        mRoot = (RelativeLayout) findViewById(R.id.root_activity_second);
+        mRoot = (LinearLayout) findViewById(R.id.root_activity_second);
         mInputLayout = (TextInputLayout) findViewById(R.id.input_layout);
         mPasswordLayout = (TextInputLayout) findViewById(R.id.password_layout);
         mInputText = (EditText) findViewById(R.id.edtInput);
@@ -103,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 mInputLayout.setError(null);
                 mPasswordLayout.setError(null);
             }
+
             if (mInputText.getText().toString().equals("admin") && mPasswordText.getText().toString().equals("admin")) {
                 Intent loginIntent = new Intent(LoginActivity.this, AdminAreaActivity.class);
                 startActivity(loginIntent);
@@ -124,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    @Override
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.testmenu, menu);
         return true;
@@ -151,5 +140,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     }
                 }).show();
-    }
+    }*/
 }
