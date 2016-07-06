@@ -2,6 +2,10 @@ package com.rockstart.githubproject;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.RippleDrawable;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
@@ -26,6 +30,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     boolean isEmptyEmail;
     boolean isEmptyPassword;
 
+    RippleDrawable rippleButton;
+
+
     private View.OnClickListener mSnackBarClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -43,6 +50,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setTitle("Klok Innovations");
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
 
         Initialize();
         listener();
@@ -93,15 +102,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             } else if (!isEmptyEmail && !isEmptyPassword) {
                 mInputLayout.setError(null);
                 mPasswordLayout.setError(null);
-            } else if (mInputText.getText().toString().equals("admin") && mPasswordText.getText().toString().equals("admin")) {
+            }
+            if (mInputText.getText().toString().equals("admin") && mPasswordText.getText().toString().equals("admin")) {
                 Intent loginIntent = new Intent(LoginActivity.this, AdminAreaActivity.class);
-                LoginActivity.this.startActivity(loginIntent);
+                startActivity(loginIntent);
             } else if(mInputText.getText().toString().equals("manager") && mPasswordText.getText().toString().equals("manager")) {
                 Intent loginIntent = new Intent(LoginActivity.this, ManagerAreaActivity.class);
-                LoginActivity.this.startActivity(loginIntent);
+                startActivity(loginIntent);
             }else if(mInputText.getText().toString().equals("user") && mPasswordText.getText().toString().equals("user")) {
                 Intent loginIntent = new Intent(LoginActivity.this, UserAreaActivity.class);
-                LoginActivity.this.startActivity(loginIntent);
+                startActivity(loginIntent);
             }else {
                 //wrong password
                 Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
