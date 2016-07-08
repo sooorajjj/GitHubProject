@@ -41,6 +41,8 @@ public class UserAreaActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                                 finish();
+                                overridePendingTransition(R.anim.fade_in,
+                                        R.anim.fade_out);
                             }
                         })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -49,7 +51,6 @@ public class UserAreaActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-        // Create the AlertDialog object and return it
         builder.create();
         builder.show();
     }
