@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class AdminAreaActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button bBilling, bReports, bMasters, bSettings;
-    private LinearLayout toolbarBottom;
+    private LinearLayout layoutBottom;
     private TextView movingText;
 
     @Override
@@ -42,7 +42,7 @@ public class AdminAreaActivity extends AppCompatActivity implements View.OnClick
 
     private void initialize() {
         movingText = (TextView) findViewById(R.id.txtMarquee);
-        toolbarBottom = (LinearLayout) findViewById(R.id.toolbar_bottom);
+        layoutBottom = (LinearLayout) findViewById(R.id.toolbar_bottom);
         bBilling = (Button) findViewById(R.id.bBilling);
         bReports = (Button) findViewById(R.id.bReports);
         bMasters = (Button) findViewById(R.id.bMasters);
