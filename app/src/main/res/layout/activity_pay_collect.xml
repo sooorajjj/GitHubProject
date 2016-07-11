@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".PayCollectActivity">
 
+    <include
+        android:id="@+id/bottom_bar"
+        layout="@layout/bottom_bar" />
 
     <TextView
         android:id="@+id/tvBillNo"

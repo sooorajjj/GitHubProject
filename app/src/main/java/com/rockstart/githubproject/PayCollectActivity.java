@@ -32,13 +32,14 @@ public class PayCollectActivity extends AppCompatActivity {
         initialize();
         listener();
 
+
         Animation shake = AnimationUtils.loadAnimation(PayCollectActivity.this, R.anim.shake);
         movingText.startAnimation(shake);
     }
 
     private void initialize() {
-        movingText = (TextView) findViewById(R.id.txtMarquee);
         layoutBottom = (LinearLayout) findViewById(R.id.bottom_bar);
+        movingText = (TextView) findViewById(R.id.txtMarquee);
     }
 
     private void listener() {
