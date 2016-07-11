@@ -6,11 +6,19 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.rockstart.githubproject.R;
 
 public class UserAreaActivity extends AppCompatActivity {
+
+    private Button bMasters, bChangeStock;
+    private LinearLayout layoutBottom;
+    private TextView movingText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +32,25 @@ public class UserAreaActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        Button bChangeStock = (Button) findViewById(R.id.bSettings);
-        bChangeStock.setVisibility(View.GONE);
+        initialize();
+        listener();
 
-        Button bMasters = (Button) findViewById(R.id.bMasters);
+        bChangeStock.setVisibility(View.GONE);
         bMasters.setVisibility(View.GONE);
+
+        Animation shake = AnimationUtils.loadAnimation(UserAreaActivity.this, R.anim.shake);
+        movingText.startAnimation(shake);
+    }
+
+    private void initialize() {
+        bMasters = (Button) findViewById(R.id.bMasters);
+        bChangeStock = (Button) findViewById(R.id.bSettings);
+        movingText = (TextView) findViewById(R.id.txtMarquee);
+        layoutBottom = (LinearLayout) findViewById(R.id.bottom_bar);
+    }
+
+    private void listener() {
+
     }
 
     @Override

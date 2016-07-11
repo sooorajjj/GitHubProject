@@ -42,7 +42,7 @@ public class AdminAreaActivity extends AppCompatActivity implements View.OnClick
 
     private void initialize() {
         movingText = (TextView) findViewById(R.id.txtMarquee);
-        layoutBottom = (LinearLayout) findViewById(R.id.toolbar_bottom);
+        layoutBottom = (LinearLayout) findViewById(R.id.bottom_bar);
         bBilling = (Button) findViewById(R.id.bBilling);
         bReports = (Button) findViewById(R.id.bReports);
         bMasters = (Button) findViewById(R.id.bMasters);
