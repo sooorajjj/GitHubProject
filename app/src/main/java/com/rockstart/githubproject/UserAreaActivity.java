@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import com.rockstart.githubproject.R;
 
-public class UserAreaActivity extends AppCompatActivity {
+public class UserAreaActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button bMasters, bChangeStock;
+    private Button bBilling, bReports, bMasters, bChangeStock;
     private LinearLayout layoutBottom;
     private TextView movingText;
 
@@ -43,6 +43,8 @@ public class UserAreaActivity extends AppCompatActivity {
     }
 
     private void initialize() {
+        bBilling = (Button) findViewById(R.id.bBilling);
+        bReports = (Button) findViewById(R.id.bReports);
         bMasters = (Button) findViewById(R.id.bMasters);
         bChangeStock = (Button) findViewById(R.id.bSettings);
         movingText = (TextView) findViewById(R.id.txtMarquee);
@@ -50,7 +52,35 @@ public class UserAreaActivity extends AppCompatActivity {
     }
 
     private void listener() {
+        bBilling.setOnClickListener(this);
+        bReports.setOnClickListener(this);
+        bMasters.setOnClickListener(this);
+        bChangeStock.setOnClickListener(this);
 
+    }
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.bBilling) {
+            Intent adminIntent = new Intent(UserAreaActivity.this, BillingActivity.class);
+            startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
+        }
+
+        if (v.getId() == R.id.bReports) {
+            Intent adminIntent = new Intent(UserAreaActivity.this, ReportsActivity.class);
+            startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
+        }
+
+        if (v.getId() == R.id.bMasters) {
+
+        }
+
+        if (v.getId() == R.id.bSettings) {
+
+        }
     }
 
     @Override

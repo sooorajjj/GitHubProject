@@ -20,7 +20,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:text="Moving Text foreverrrrrrrrrrrrrrr forever"
+        android:text="Moving Text /txtMarquee ... General Information , This is how the text or information to the user will be shown . Knock knock ! Who's there"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
 </LinearLayout>
